@@ -1,0 +1,7 @@
+singleQuote: true
+trailingComma: all
+overrides:
+  [
+    { files: '*.html', options: { parser: angular } },
+    { files: '*.ya?ml', options: { parser: yaml } },
+  ]
