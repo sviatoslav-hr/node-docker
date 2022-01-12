@@ -42,8 +42,8 @@ env:
                                                # containerDefinitions section of your task definition
 
 jobs:
-  build:
-    name: Build
+  deploy:
+    name: Deploy to AWS
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
@@ -61,6 +61,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build, tag, and push image to Amazon ECR
+      id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }}
